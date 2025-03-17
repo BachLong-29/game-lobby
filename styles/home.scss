@@ -1,0 +1,44 @@
+.game-list-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    text-align: center;
+    @media (max-width: 1440px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+.game-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    position: relative; 
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #c0cbe5;
+  }
+  .game-img {
+    border-radius: 20px;
+  }
+  .game-text {
+    color: #fff
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+  }

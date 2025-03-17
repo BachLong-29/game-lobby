@@ -5,11 +5,22 @@ body {
     margin: 0;
     padding: 0;
     .container {
-      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .main {
+      flex: 1;
+      padding-top: 16px;
+      padding: 16px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
     h1 {
-      font-size: 2rem;
-      color: #0070f3;
+      font-size: 1.5rem;
+      color: #333;
+      font-weight: 600;
     }
 }
 

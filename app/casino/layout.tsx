@@ -1,0 +1,21 @@
+import "@/styles/global.scss";
+
+import { CasinoProvider } from "@/context/CasinoContext";
+import type { Metadata } from "next";
+import axios from "axios";
+
+export const metadata: Metadata = {
+  title: "Game",
+  description: "Game lobby",
+};
+
+export default async function CasinoLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const res = await axios.get(
+    `https://casino.api.stg.kansino.nl/v1/kansino/pages/nl/casino/`
+  );
+  return <CasinoProvider value={res.data}>{children}</CasinoProvider>;
+}

@@ -2,40 +2,30 @@
 
 import "@/styles/game.scss";
 
-import { useEffect, useState } from "react";
-
-const gamesData = [
-  { id: 1, name: "The Legend of Zelda" },
-  { id: 2, name: "Super Mario Odyssey" },
-  { id: 3, name: "Minecraft" },
-  { id: 4, name: "Fortnite" },
-  { id: 5, name: "Cyberpunk 2077" },
-  { id: 6, name: "The Witcher 3" },
-  { id: 7, name: "Grand Theft Auto V" },
-  { id: 8, name: "Among Us" },
-];
+import { useCallback, useEffect, useState } from "react";
 
 interface IProps {
-  category: string;
+  data: { id: string; name: string }[];
 }
 
 const ListGame = (props: IProps) => {
+  const { data } = props;
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredGames, setFilteredGames] = useState(gamesData);
+  const [filteredGames, setFilteredGames] = useState(props.data);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
 
-  const handleSearch = () => {
-    const filtered = gamesData.filter((game) =>
+  const handleSearch = useCallback(() => {
+    const filtered = data.filter((game) =>
       game.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredGames(filtered);
-  };
+  }, [data, searchTerm]);
 
   useEffect(() => {
     const handler = setTimeout(handleSearch, 300);
     return () => clearTimeout(handler);
-  }, [searchTerm]);
+  }, [handleSearch, searchTerm]);
 
   const totalPages = Math.ceil(filteredGames.length / pageSize);
   const currentGames = filteredGames.slice(
