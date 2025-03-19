@@ -7,18 +7,16 @@ import { useGetCasinoInfo } from "@/context/CasinoContext";
 const GamePage = () => {
   const data = useGetCasinoInfo();
   return (
-    <div>
-      <ListGame
-        data={
-          data.components
-            ?.find((comp) => comp.type === "game-list")
-            ?.games.map((game) => ({
-              id: game.id,
-              name: game.gameText,
-            })) ?? []
-        }
-      />
-    </div>
+    <ListGame
+      data={
+        data.components
+          ?.find((comp) => comp.type === "game-list")
+          ?.games.map((game) => ({
+            id: game.id,
+            name: game.gameText,
+          })) ?? []
+      }
+    />
   );
 };
 

@@ -9,6 +9,9 @@
     @media (max-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
     }
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 }
 .game-card{
     display: flex;
@@ -21,6 +24,7 @@
     border-radius: 15px;
     cursor: pointer;
     background-color: #c0cbe5;
+    width: fit-content;
   }
   .game-img {
     border-radius: 20px;

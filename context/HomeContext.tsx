@@ -2,7 +2,7 @@
 
 import { createContext, useContext } from "react";
 
-interface LobbyItem {
+export interface LobbyItem {
   path: string;
   id: string;
   name: string;
